@@ -47,6 +47,8 @@ def command(command):
             return 0
         except FileNotFoundError:
             return 3
+        except OSError:
+            return 3
     
     elif (command[0] == "pwd"):
         pwd(os.getcwd())
@@ -59,7 +61,7 @@ def command(command):
         except FileNotFoundError:
             return 3
         except IndexError:
-            return 4
+            return 5
     
     elif (command[0] == "mv"):
         try:
@@ -76,8 +78,8 @@ def command(command):
             return 0
         except FileNotFoundError:
             return 4
-        #except IndexError:
-          #  return 4
+        except IndexError:
+            return 4
           
     elif (command[0] == "rmdir"):
         try:
@@ -89,6 +91,8 @@ def command(command):
             return 7
         except PermissionError:
             return 8
+        except IndexError:
+            return 3
     
     elif (command[0] == "mkdir"):
         try:
@@ -96,6 +100,8 @@ def command(command):
             return 0
         except FileExistsError:
             return 6
+        except FileNotFoundError:
+            return 3
     else:
         return 2
 
