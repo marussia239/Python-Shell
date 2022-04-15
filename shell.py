@@ -1,6 +1,6 @@
 import os
 import shutil
-
+#string for comparing
 def ls(dr):
     mklist = os.listdir(dr)
     print(' '.join(mklist))
